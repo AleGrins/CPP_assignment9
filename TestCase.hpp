@@ -17,7 +17,7 @@ class TestCase {
         template<class T>
         void check_different(T const A, T const B);
         template<class T, class V>
-        void check_function(V (*func)(T const), T const A, V const B);
+        void check_function(V (*func)(T), T A, V B);
         template<class T>
         void check_output(T const A, const string S);
         void print();
