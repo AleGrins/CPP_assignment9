@@ -50,5 +50,4 @@ void TestCase::check_function(V (*func)(T const), T const A, V const B)
 void TestCase::print()
 {
     out << testName << ": " << failed << " failed, " << passed << " passed, " << testCount << " total." << endl;
-    cout << out;
 }
