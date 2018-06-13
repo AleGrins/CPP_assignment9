@@ -63,7 +63,7 @@ ostream& operator<< (ostream& out, const OtherStruct& tc) {
 	return (out << "OtherStruct"<<"("<<tc.num<<")"); // No typo.
 }
 
-int main() {/*
+int main() {
 	TestCase("Test int operators", cerr)
 		.check_equal(5,5)                  // check operator ==. Here there is no bug.
 		.check_different(5,6)              // check operator !=. Here there is no bug.
@@ -80,11 +80,11 @@ int main() {/*
 		.check_output(MyStruct(5), "MyStruct(5)")   // Here there is a bug. 
 		.check_function(getNum, MyStruct(5), 5)     // Here there is a bug.
 		.check_function([](const MyStruct& s){return s.myNum();}, MyStruct(5), 5) // Here there is a bug.
-		.print();*/
+		.print();
 
 	TestCase("Test OtherStruct operators", cerr)
-		//.check_different(OtherStruct{5}, OtherStruct{6})                   // Here there is a bug.
-		//.check_output(OtherStruct(5), "OtherStruct(5)")   // Here there is no bug. 
+		.check_different(OtherStruct{5}, OtherStruct{6})                   // Here there is a bug.
+		.check_output(OtherStruct(5), "OtherStruct(5)")   // Here there is no bug. 
 		.print();
 		
 }
