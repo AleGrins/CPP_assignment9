@@ -37,7 +37,7 @@ void TestCase::check_output(T const A, const string S)
 }
 
 template<class T, class V>
-void TestCase::check_function(V (*func)(T const), T const A, V const B)
+void TestCase::check_function(V (*func)(T), T A, V B)
 {
     testCount++;
     if(func(A) == B) passed++;
