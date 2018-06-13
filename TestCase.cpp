@@ -1,3 +1,5 @@
+#include "TestCase.hpp"
+using namespace std;
 
 void TestCase::print()
 {
