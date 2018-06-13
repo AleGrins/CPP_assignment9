@@ -20,7 +20,7 @@ TestCase& TestCase::check_different(T const A, T const B)
         out << testName << ": Failure in test #" << testCount << ": " << A << " should differ from " << B << "!" << endl;
         failed++;
     }  
-    
+    return *this;
 }
 
 template<class T>
