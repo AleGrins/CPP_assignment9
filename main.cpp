@@ -1,7 +1,7 @@
 /**
  * A main program for testing the "TestCase" tester.
  */
-
+/*
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -13,7 +13,7 @@ using namespace std;
  * Below we define some functions with deliberate bugs, 
  * to demonstrate that our tester can find them.
  */
-
+/*
 int sqr(int x) { 
 	return x*x*x;   // a deliberate bug (it should be: x*x)
 }
@@ -28,7 +28,7 @@ int myround(double x) {
  * Below we define a whole new struct with deliberate bugs, 
  * to demonstrate that our tester can find bugs even in new classes.
  */
-
+/*
 struct MyStruct {
 	int num;
 	MyStruct(int num): num(num) {}
