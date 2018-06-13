@@ -12,19 +12,23 @@ class TestCase {
         
     public:
         TestCase(string S, ostream& O) : out(O), testName(S), passed(0), failed(0), testCount(0) {}
+        
         template<class T>
-        TestCase& check_equal(T const A, T const B);
+        TestCase& check_equal(const T& A, const T& B);
+        
         template<class T>
-        TestCase& check_different(T const A, T const B);
-        template<class T, class V>
-        TestCase& check_function(V (*func)(T const), T const A, V const B);
+        TestCase& check_different(const T& A, const T& B);
+        
+        template<class T, class V, class U>
+        TestCase& check_function(V (*func)(const U), const T A, const V B);
+        
         template<class T>
-        TestCase& check_output(T const A, const string S);
+        TestCase& check_output(const T& A, const string S);
         void print();
 };
 
 template<class T>
-TestCase& TestCase::check_equal(T const A, T const B)
+TestCase& TestCase::check_equal(const T& A, const T& B)
 {
     testCount++;
     if(A == B) passed++;
@@ -36,7 +40,7 @@ TestCase& TestCase::check_equal(T const A, T const B)
 }
 
 template<class T>
-TestCase& TestCase::check_different(T const A, T const B)
+TestCase& TestCase::check_different(const T& A, const T& B)
 {
     testCount++;
     if(A != B) passed++;
@@ -48,7 +52,7 @@ TestCase& TestCase::check_different(T const A, T const B)
 }
 
 template<class T>
-TestCase& TestCase::check_output(T const A, const string S)
+TestCase& TestCase::check_output(const T& A, const string S)
 {
     testCount++;
     ostringstream buf;
@@ -61,8 +65,8 @@ TestCase& TestCase::check_output(T const A, const string S)
     return *this;
 }
 
-template<class T, class V>
-TestCase& TestCase::check_function(V (*func)(T const), T const A, V const B)
+template<class T, class V, class U>
+TestCase& TestCase::check_function(V (*func)(const U), const T A, const V B)
 {
     testCount++;
     if(func(A) == B) passed++;
@@ -72,4 +76,3 @@ TestCase& TestCase::check_function(V (*func)(T const), T const A, V const B)
     } 
     return *this;
 }
-
